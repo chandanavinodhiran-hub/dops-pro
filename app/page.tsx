@@ -170,6 +170,17 @@ export default function DopsProPage() {
           >
             Dental Office Production System
           </p>
+          <a
+            href="#discover"
+            className="hero-cta-btn"
+            style={{
+              opacity: loaded ? 1 : 0,
+              transform: loaded ? "translateY(0)" : "translateY(30px)",
+              transitionDelay: "1.0s",
+            }}
+          >
+            Discover More
+          </a>
         </div>
       </section>
 
@@ -597,12 +608,11 @@ export default function DopsProPage() {
         .hero-overlay {
           position: absolute; top: 0; left: 0; right: 0; bottom: 0;
           pointer-events: none; z-index: 2;
-          background: linear-gradient(
-            to right,
-            rgba(245, 242, 237, 0.92) 0%,
-            rgba(245, 242, 237, 0.85) 30%,
-            rgba(245, 242, 237, 0.4) 60%,
-            rgba(245, 242, 237, 0.0) 100%
+          background: radial-gradient(
+            ellipse at center,
+            rgba(245, 242, 237, 0.55) 0%,
+            rgba(245, 242, 237, 0.75) 50%,
+            rgba(245, 242, 237, 0.88) 100%
           );
         }
 
@@ -617,10 +627,12 @@ export default function DopsProPage() {
           );
         }
 
-        /* Content — bottom-left */
+        /* Content — centered */
         .hero-content {
           position: absolute;
-          bottom: 100px; left: 80px;
+          top: 50%; left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
           z-index: 10;
         }
         .hero-dops {
@@ -628,7 +640,7 @@ export default function DopsProPage() {
           font-size: clamp(72px, 10vw, 130px);
           font-weight: 700;
           color: rgba(20, 20, 20, 0.92);
-          letter-spacing: -0.02em;
+          letter-spacing: 0.08em;
           line-height: 1;
           margin: 0;
           transition: opacity 0.8s ${C.easeContent}, transform 0.8s ${C.easeContent};
@@ -641,6 +653,25 @@ export default function DopsProPage() {
           letter-spacing: 0.05em;
           margin: 12px 0 0 0;
           transition: opacity 0.8s ${C.easeContent}, transform 0.8s ${C.easeContent};
+        }
+        .hero-cta-btn {
+          display: inline-block;
+          background: transparent;
+          border: 1px solid rgba(20, 20, 20, 0.3);
+          padding: 14px 48px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 11px; font-weight: 500;
+          letter-spacing: 4px;
+          text-transform: uppercase;
+          color: rgba(20, 20, 20, 0.7);
+          text-decoration: none;
+          cursor: pointer;
+          margin-top: 40px;
+          transition: all 0.4s ${C.easeContent};
+        }
+        .hero-cta-btn:hover {
+          border-color: rgba(20, 20, 20, 0.7);
+          color: rgba(20, 20, 20, 0.95);
         }
         @keyframes fadeIn { to { opacity: 1; } }
 
@@ -993,7 +1024,6 @@ export default function DopsProPage() {
           .nav-cta { display: none; }
           .nav-wordmark { font-size: 13px; letter-spacing: 4px; }
           .nav-dropdown { left: 24px; top: 64px; }
-          .hero-content { left: 32px; bottom: 60px; }
           .hero-dops { font-size: clamp(48px, 12vw, 72px); }
           .s2-section { padding: 60px 32px; height: auto; min-height: 100vh; }
           .s2-grid { grid-template-columns: 1fr; gap: 40px; }
