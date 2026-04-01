@@ -150,93 +150,26 @@ export default function DopsProPage() {
         <div className="hero-nav-overlay" />
 
         <div className="hero-content">
-          {/* Eyebrow */}
-          <p
-            className="hero-eyebrow"
-            style={{
-              opacity: loaded ? 1 : 0,
-              transform: loaded ? "translateY(0)" : "translateY(30px)",
-              transitionDelay: "0.3s",
-            }}
-          >
-            Iozera Healthcare AI
-          </p>
-
-          {/* Headline line 1 */}
           <h1
-            className="hero-headline"
+            className="hero-dops"
             style={{
               opacity: loaded ? 1 : 0,
               transform: loaded ? "translateY(0)" : "translateY(30px)",
-              transitionDelay: "0.55s",
+              transitionDelay: "0.4s",
             }}
           >
-            Dental Office
+            DOPS
           </h1>
-
-          {/* Headline line 2 */}
-          <h1
-            className="hero-headline hero-headline-2"
+          <p
+            className="hero-subline"
             style={{
               opacity: loaded ? 1 : 0,
               transform: loaded ? "translateY(0)" : "translateY(30px)",
               transitionDelay: "0.7s",
             }}
           >
-            Production System
-          </h1>
-
-          {/* Subheadline */}
-          <p
-            className="hero-sub"
-            style={{
-              opacity: loaded ? 1 : 0,
-              transform: loaded ? "translateY(0)" : "translateY(30px)",
-              transitionDelay: "0.9s",
-            }}
-          >
-            Minimise leaked revenue. Capture hidden revenue.
+            Dental Office Production System
           </p>
-
-          {/* Body */}
-          <p
-            className="hero-body"
-            style={{
-              opacity: loaded ? 1 : 0,
-              transform: loaded ? "translateY(0)" : "translateY(30px)",
-              transitionDelay: "1.1s",
-            }}
-          >
-            DOPS is an AI-powered dental production system that identifies
-            unscheduled treatment, optimises clinical capacity, and automates
-            patient communication — for dental practices, group practices,
-            and DSOs.
-          </p>
-
-          {/* CTAs */}
-          <div
-            className="hero-ctas"
-            style={{
-              opacity: loaded ? 1 : 0,
-              transform: loaded ? "translateY(0)" : "translateY(30px)",
-              transitionDelay: "1.3s",
-            }}
-          >
-            <a href="#how" className="hero-btn">See How It Works</a>
-            <a href="#demo" className="hero-btn hero-btn-primary">Request a Demo</a>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div
-          className="scroll-indicator"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transitionDelay: "1.6s",
-          }}
-        >
-          <span className="scroll-label">Scroll</span>
-          <div className="scroll-line" />
         </div>
       </section>
 
@@ -687,110 +620,27 @@ export default function DopsProPage() {
         /* Content — bottom-left */
         .hero-content {
           position: absolute;
-          bottom: 80px; left: 80px; right: 80px;
+          bottom: 100px; left: 80px;
           z-index: 10;
         }
-
-        /* Stagger transitions — all elements use same curve */
-        .hero-eyebrow,
-        .hero-headline,
-        .hero-sub,
-        .hero-body,
-        .hero-ctas {
+        .hero-dops {
+          font-family: 'DM Sans', sans-serif;
+          font-size: clamp(72px, 10vw, 130px);
+          font-weight: 700;
+          color: rgba(20, 20, 20, 0.92);
+          letter-spacing: -0.02em;
+          line-height: 1;
+          margin: 0;
           transition: opacity 0.8s ${C.easeContent}, transform 0.8s ${C.easeContent};
         }
-
-        .hero-eyebrow {
+        .hero-subline {
           font-family: 'DM Sans', sans-serif;
-          font-size: 12px; font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 4px;
+          font-size: 18px;
+          font-weight: 500;
           color: rgba(20, 20, 20, 0.55);
-          margin: 0 0 24px 0;
-        }
-
-        .hero-headline {
-          font-family: 'DM Sans', sans-serif;
-          font-size: clamp(40px, 4.5vw, 56px); font-weight: 600;
-          width: 100%;
-          letter-spacing: 2px;
-          color: rgba(20, 20, 20, 0.92);
-          line-height: 1.15;
-          margin: 0;
-        }
-        .hero-headline-2 {
-          margin-top: 4px;
-          margin-bottom: 28px;
-        }
-
-        .hero-sub {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 24px; font-weight: 600;
-          letter-spacing: 1px;
-          color: rgba(20, 20, 20, 0.75);
-          margin: 0 0 24px 0;
-        }
-
-        .hero-body {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 17px; font-weight: 500;
-          line-height: 1.75;
-          color: rgba(20, 20, 20, 0.65);
-          margin: 0 0 40px 0;
-          max-width: 520px;
-        }
-
-        /* CTAs */
-        .hero-ctas {
-          display: flex; gap: 24px;
-        }
-        .hero-btn {
-          display: inline-block;
-          background: transparent;
-          border: 1px solid rgba(20, 20, 20, 0.35);
-          padding: 14px 36px;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 12px; font-weight: 600;
-          letter-spacing: 3px;
-          text-transform: uppercase;
-          color: rgba(20, 20, 20, 0.7);
-          text-decoration: none;
-          cursor: pointer;
-          transition: all 0.4s ${C.easeHover};
-        }
-        .hero-btn:hover {
-          background: rgba(20, 20, 20, 0.05);
-          border-color: rgba(20, 20, 20, 0.6);
-          color: rgba(20, 20, 20, 0.95);
-        }
-        .hero-btn-primary {
-          border-color: rgba(20, 20, 20, 0.6);
-          color: rgba(20, 20, 20, 0.85);
-        }
-
-        /* ── Scroll indicator ── */
-        .scroll-indicator {
-          position: absolute; bottom: 40px; left: 50%;
-          transform: translateX(-50%); z-index: 10;
-          display: flex; flex-direction: column;
-          align-items: center; gap: 12px;
-          transition: opacity 0.8s ${C.easeContent};
-        }
-        .scroll-label {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 9px; font-weight: 400;
-          text-transform: uppercase;
-          letter-spacing: 4px;
-          color: rgba(20, 20, 20, 0.3);
-        }
-        .scroll-line {
-          width: 1px; height: 48px;
-          background: linear-gradient(to bottom, rgba(20, 20, 20, 0.4), rgba(20, 20, 20, 0));
-          animation: scrollPulse 2.5s ease-in-out infinite;
-        }
-        @keyframes scrollPulse {
-          0%, 100% { opacity: 0.15; transform: scaleY(0.7); }
-          50% { opacity: 0.35; transform: scaleY(1.0); }
+          letter-spacing: 0.05em;
+          margin: 12px 0 0 0;
+          transition: opacity 0.8s ${C.easeContent}, transform 0.8s ${C.easeContent};
         }
         @keyframes fadeIn { to { opacity: 1; } }
 
@@ -1143,12 +993,8 @@ export default function DopsProPage() {
           .nav-cta { display: none; }
           .nav-wordmark { font-size: 13px; letter-spacing: 4px; }
           .nav-dropdown { left: 24px; top: 64px; }
-          .hero-content { left: 32px; right: 32px; bottom: 80px; }
-          .hero-headline { font-size: clamp(28px, 7vw, 40px); }
-          .hero-sub { font-size: 15px; }
-          .hero-ctas { flex-direction: column; gap: 16px; }
-          .hero-btn { text-align: center; }
-          .scroll-indicator { display: none; }
+          .hero-content { left: 32px; bottom: 60px; }
+          .hero-dops { font-size: clamp(48px, 12vw, 72px); }
           .s2-section { padding: 60px 32px; height: auto; min-height: 100vh; }
           .s2-grid { grid-template-columns: 1fr; gap: 40px; }
           .s2-headline { font-size: clamp(28px, 7vw, 40px); }
