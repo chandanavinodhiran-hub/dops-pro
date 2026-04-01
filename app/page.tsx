@@ -31,6 +31,19 @@ export default function DopsProPage() {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  /* Scroll reveal for What is DOPS section */
+  const sWhatRef = useRef<HTMLElement>(null);
+  const [sWhatVisible, setSWhatVisible] = useState(false);
+  useEffect(() => {
+    if (!sWhatRef.current) return;
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setSWhatVisible(true); },
+      { threshold: 0.2 }
+    );
+    obs.observe(sWhatRef.current);
+    return () => obs.disconnect();
+  }, []);
+
   /* Scroll reveal for sections below hero */
   const s2Ref = useRef<HTMLElement>(null);
   const [s2Visible, setS2Visible] = useState(false);
@@ -181,6 +194,54 @@ export default function DopsProPage() {
           >
             Discover More
           </a>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════
+       * WHAT IS DOPS
+       * ═══════════════════════════════════════════════════════════ */}
+      <section className="sWhat-section" ref={sWhatRef}>
+        <div className="sWhat-inner">
+          <p
+            className="sWhat-eyebrow"
+            style={{
+              opacity: sWhatVisible ? 1 : 0,
+              transform: sWhatVisible ? "translateY(0)" : "translateY(30px)",
+              transitionDelay: "0.1s",
+            }}
+          >
+            What is DOPS?
+          </p>
+          <h2
+            className="sWhat-line"
+            style={{
+              opacity: sWhatVisible ? 1 : 0,
+              transform: sWhatVisible ? "translateY(0)" : "translateY(30px)",
+              transitionDelay: "0.2s",
+            }}
+          >
+            Captures hidden revenue.
+          </h2>
+          <h2
+            className="sWhat-line"
+            style={{
+              opacity: sWhatVisible ? 1 : 0,
+              transform: sWhatVisible ? "translateY(0)" : "translateY(30px)",
+              transitionDelay: "0.4s",
+            }}
+          >
+            Minimises leaked revenue.
+          </h2>
+          <h2
+            className="sWhat-line"
+            style={{
+              opacity: sWhatVisible ? 1 : 0,
+              transform: sWhatVisible ? "translateY(0)" : "translateY(30px)",
+              transitionDelay: "0.6s",
+            }}
+          >
+            More production. More collections.
+          </h2>
         </div>
       </section>
 
@@ -1017,6 +1078,36 @@ export default function DopsProPage() {
           transition: opacity 0.8s ${C.easeContent}, transform 0.8s ${C.easeContent};
         }
 
+        /* ════════════════════════════════════════════════════════════
+         * WHAT IS DOPS
+         * ════════════════════════════════════════════════════════════ */
+        .sWhat-section {
+          width: 100%; min-height: 100vh;
+          background: #F5F2ED;
+          display: flex; align-items: center;
+          padding: 80px;
+          box-sizing: border-box;
+        }
+        .sWhat-inner { width: 100%; }
+        .sWhat-eyebrow {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 12px; font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          color: rgba(20, 20, 20, 0.45);
+          margin: 0 0 40px 0;
+          transition: opacity 0.8s ${C.easeContent}, transform 0.8s ${C.easeContent};
+        }
+        .sWhat-line {
+          font-family: 'DM Sans', sans-serif;
+          font-size: clamp(36px, 4vw, 54px); font-weight: 700;
+          color: rgba(20, 20, 20, 0.92);
+          line-height: 1.2;
+          margin: 0 0 16px 0;
+          transition: opacity 0.8s ${C.easeContent}, transform 0.8s ${C.easeContent};
+        }
+        .sWhat-line:last-child { margin-bottom: 0; }
+
         /* ── Responsive ── */
         @media (max-width: 768px) {
           .landing-nav { padding: 16px 24px; }
@@ -1025,6 +1116,8 @@ export default function DopsProPage() {
           .nav-wordmark { font-size: 13px; letter-spacing: 4px; }
           .nav-dropdown { left: 24px; top: 64px; }
           .hero-dops { font-size: clamp(48px, 12vw, 72px); }
+          .sWhat-section { padding: 60px 32px; }
+          .sWhat-line { font-size: clamp(24px, 6vw, 36px); }
           .s2-section { padding: 60px 32px; height: auto; min-height: 100vh; }
           .s2-grid { grid-template-columns: 1fr; gap: 40px; }
           .s2-headline { font-size: clamp(28px, 7vw, 40px); }
